@@ -88,6 +88,10 @@ def download_paper(pmid, pmc_id, temp_workspace, output_dir):
             with tarfile.open(tar_path, 'r') as tar:
                 folder_name = os.path.join(output_dir, tar.getmembers()[0].path)
                 tar.extractall(output_dir)
+
+            os.remove(gz_path)
+            os.remove(tar_path)
+
             return True
 
     return folder_name
