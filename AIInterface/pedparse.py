@@ -171,7 +171,6 @@ def call_model_with_image(client: AzureOpenAI, deployment: str, image_bytes: byt
     resp = client.chat.completions.create(
         model=deployment,
         messages=messages,
-        temperature=0,
         response_format={"type": "json_object"}
     )
     text = resp.choices[0].message.content
